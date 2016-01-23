@@ -1,14 +1,19 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { addTodo } from 'redux/actions';
+import AddTodo from 'components/AddTodo/AddTodo';
 
 class TodoApp extends React.Component {
   render () {
     const { dispatch, todos } = this.props;
     return (
       <div>
-        <h1>Let&apos;s do this!</h1>
+        <AddTodo onAddTodo={(text) => {
+          dispatch(addTodo(text));
+        }}/>
         { JSON.stringify(todos) }
       </div>
+
     );
   }
 };
