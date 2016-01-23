@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import {
   LIST_FILTERS,
   LIST_MODES,
@@ -10,14 +9,6 @@ import {
   REMOVE_TODO,
   TOGGLE_TODO
 } from './actions';
-
-/*
-var state = {
-  filter: 'complete',
-  mode: 'insert',
-  todos: [{label, completed, id}]
-}
-*/
 
 export const filter = (
   state = LIST_FILTERS.SHOW_ALL,
@@ -92,9 +83,3 @@ export const todos = (
       return state;
   }
 };
-
-export const todoApp = combineReducers({
-  filter,
-  mode,
-  todos
-});

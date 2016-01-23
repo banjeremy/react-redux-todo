@@ -1,8 +1,14 @@
+// TODO: experiment with redux-simple-router
+// import { routeReducer as router } from 'redux-simple-router';
 import { combineReducers } from 'redux';
-import { routeReducer as router } from 'redux-simple-router';
-import counter from './modules/counter';
+import {
+  filter,
+  mode,
+  todos
+} from './reducers';
 
 export default combineReducers({
-  counter,
-  router
+  filter,
+  mode,
+  todos
 });

@@ -11,12 +11,13 @@ import {
 } from 'redux/actions';
 
 import {
-  todoApp,
   todos,
   todo,
   mode,
   filter
 } from 'redux/reducers';
+
+import rootReducer from 'redux/rootReducer';
 
 describe('filter reducer', () => {
   it('returns an initial state', () => {
@@ -58,7 +59,7 @@ describe('mode reducer', () => {
   });
 });
 
-describe('todoApp reducer', () => {
+describe('root reducer', () => {
   it('returns an initial state', () => {
     const stateBefore = undefined;
     const action = {};
@@ -69,7 +70,7 @@ describe('todoApp reducer', () => {
     };
 
     expect(
-      todoApp(
+      rootReducer(
         stateBefore,
         action
       )).to.deep.equal(stateAfter);
