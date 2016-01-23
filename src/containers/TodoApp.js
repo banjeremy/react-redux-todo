@@ -1,19 +1,22 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from 'redux/actions';
+import {
+  addTodo,
+  toggleTodo
+} from 'redux/actions';
 import AddTodo from 'components/AddTodo/AddTodo';
+import TodoList from 'components/TodoList/TodoList';
 
 class TodoApp extends React.Component {
   render () {
     const { dispatch, todos } = this.props;
     return (
       <div>
-        <AddTodo onAddTodo={(text) => {
-          dispatch(addTodo(text));
-        }}/>
-        { JSON.stringify(todos) }
+        <AddTodo onAddTodo={text => dispatch(addTodo(text)) }/>
+        <TodoList todos={todos}
+          onToggleTodo={id => dispatch(toggleTodo(id))}
+          />
       </div>
-
     );
   }
 };

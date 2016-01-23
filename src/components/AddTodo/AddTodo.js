@@ -13,7 +13,13 @@ const AddTodo = ({
         ref={(c) => input = c} />
 
       <button className={classes['add-todo-button']}
-        onClick={() => { onAddTodo(input.value); }}
+        onClick={() => {
+          if (!input.value) {
+            return;
+          }
+          onAddTodo(input.value);
+          input.value = '';
+        }}
       >
         +
       </button>

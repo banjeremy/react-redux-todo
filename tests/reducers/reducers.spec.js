@@ -131,6 +131,39 @@ describe('todos reducer', () => {
       .to.deep.equal(stateAfter);
   });
 
+  it('toggles a todo', () => {
+    const stateBefore = [{
+      id: 0,
+      label: 'go shopping',
+      completed: false
+    }, {
+      id: 1,
+      label: 'go to work',
+      completed: false
+    }, {
+      id: 2,
+      label: 'make a todo app',
+      completed: false
+    }];
+    const action = toggleTodo(1);
+    const stateAfter = [{
+      id: 0,
+      label: 'go shopping',
+      completed: false
+    }, {
+      id: 1,
+      label: 'go to work',
+      completed: true
+    }, {
+      id: 2,
+      label: 'make a todo app',
+      completed: false
+    }];
+
+    expect(todos(stateBefore, action))
+      .to.deep.equal(stateAfter);
+  });
+
   it('moves a todo', () => {
     const stateBefore = [{
       id: 0,

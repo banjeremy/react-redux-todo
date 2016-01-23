@@ -46,9 +46,12 @@ export const todo = (
         completed: false
       };
     case TOGGLE_TODO:
+      if (state.id !== action.id) {
+        return state;
+      }
       return {
         ...state,
-        completed: true
+        completed: !state.completed
       };
     default:
       return state;
@@ -65,6 +68,8 @@ export const todos = (
         ...state,
         todo(undefined, action)
       ];
+    case TOGGLE_TODO:
+      return state.map(t => todo(t, action));
     case MOVE_TODO:
       let todosCopy = state.slice(0);
 
