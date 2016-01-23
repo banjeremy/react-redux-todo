@@ -6,8 +6,8 @@
 
 export const SET_LIST_FILTER = 'SET_LIST_FILTER';
 export const SET_LIST_MODE = 'SET_LIST_MODE';
-export const CLEAR_LIST = 'CLEAR_LIST';
-export const MOVE_LIST_ITEM = 'MOVE_LIST_ITEM';
+export const CLEAR_TODOS = 'CLEAR_TODOS';
+export const MOVE_TODO = 'MOVE_TODO';
 
 export const ADD_TODO = 'ADD_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
@@ -32,51 +32,54 @@ export const LIST_MODES = {
  * action creators
  */
 
-export function setListFilter (filter) {
+export const setListFilter = (filter) => {
   return {
     type: SET_LIST_FILTER,
     filter
   };
 };
 
-export function setListMode (mode) {
+export const setListMode = (mode) => {
   return {
     type: SET_LIST_MODE,
     mode
   };
 };
 
-export function clearList () {
+export const clearTodos = () => {
   return {
-    type: CLEAR_LIST
+    type: CLEAR_TODOS
   };
 };
 
-export function moveListItem (id, position) {
+export const moveTodo = (
+  currentPosition,
+  newPosition
+) => {
   return {
-    type: MOVE_LIST_ITEM,
-    id,
-    position
+    type: MOVE_TODO,
+    currentPosition,
+    newPosition
   };
 };
 
 let nextTodoId = 0;
-export function addTodo (label) {
+export const addTodo = (label) => {
   return {
     type: ADD_TODO,
     id: nextTodoId++,
     label
   };
-}
+};
 
-export function removeTodo (id) {
+export const removeTodo = (id) => {
   return {
     type: REMOVE_TODO,
     id
   };
 };
 
-export function toggleTodo (id) {
+export const toggleTodo = (id) => {
   return {
     type: TOGGLE_TODO,
     id

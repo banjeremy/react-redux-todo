@@ -16,5 +16,8 @@
   },
   "rules": {
     "semi" : [2, "always"]
+  },
+  "ecmaFeatures": {
+    "spread": true
   }
 }
