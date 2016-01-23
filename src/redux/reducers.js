@@ -74,6 +74,20 @@ export const todos = (
         ...state,
         todo(undefined, action)
       ];
+    case MOVE_TODO:
+      let todosCopy = state.slice(0);
+
+      todosCopy.splice(
+        action.newIndex,
+        0,
+        todosCopy.splice(action.currentIndex, 1)[0]
+      );
+
+      return todosCopy;
+    case REMOVE_TODO:
+      return state.filter((t) => t.id !== action.id);
+    case CLEAR_TODOS:
+      return [];
     default:
       return state;
   }

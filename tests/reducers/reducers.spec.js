@@ -150,12 +150,12 @@ describe('todos reducer', () => {
       label: 'make a todo app',
       completed: false
     }, {
-      id: 1,
-      label: 'go to work',
-      completed: false
-    }, {
       id: 0,
       label: 'go shopping',
+      completed: false
+    }, {
+      id: 1,
+      label: 'go to work',
       completed: false
     }];
 
@@ -163,6 +163,53 @@ describe('todos reducer', () => {
       .to.deep.equal(stateAfter);
   });
 
-  it('removes a todo');
-  it('clears the todos');
+  it('removes a todo', () => {
+    const stateBefore = [{
+      id: 2,
+      label: 'make a todo app',
+      completed: false
+    }, {
+      id: 0,
+      label: 'go shopping',
+      completed: false
+    }, {
+      id: 1,
+      label: 'go to work',
+      completed: false
+    }];
+    const action = removeTodo(0);
+    const stateAfter = [{
+      id: 2,
+      label: 'make a todo app',
+      completed: false
+    }, {
+      id: 1,
+      label: 'go to work',
+      completed: false
+    }];
+
+    expect(todos(stateBefore, action))
+      .to.deep.equal(stateAfter);
+  });
+
+  it('clears the todos', () => {
+    const stateBefore = [{
+      id: 2,
+      label: 'make a todo app',
+      completed: false
+    }, {
+      id: 0,
+      label: 'go shopping',
+      completed: false
+    }, {
+      id: 1,
+      label: 'go to work',
+      completed: false
+    }];
+    const action = clearTodos();
+    const stateAfter = [];
+
+    expect(todos(stateBefore, action))
+      .to.deep.equal(stateAfter);
+  });
 });

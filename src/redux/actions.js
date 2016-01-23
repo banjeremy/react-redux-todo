@@ -53,13 +53,13 @@ export const clearTodos = () => {
 };
 
 export const moveTodo = (
-  currentPosition,
-  newPosition
+  currentIndex,
+  newIndex
 ) => {
   return {
     type: MOVE_TODO,
-    currentPosition,
-    newPosition
+    currentIndex,
+    newIndex
   };
 };
 
