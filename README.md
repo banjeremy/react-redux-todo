@@ -1,5 +1,5 @@
 # Todo App
-Todo app using React, Redux, and React-Router!
+Todo app using React, Redux, and React-Router.
 
 ## Setup
 
