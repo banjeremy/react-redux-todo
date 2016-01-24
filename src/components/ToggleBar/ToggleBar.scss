@@ -1,0 +1,11 @@
+.toggle-bar {
+  display: flex;
+  height: 45px;
+
+  button {
+    flex: 50%;
+    border: none;
+    background-color: rgba(#fff, 0.8);
+    color: #9B9B9B;
+  }
+}

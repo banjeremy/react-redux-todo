@@ -24,7 +24,6 @@ const AddTodo = ({
 
       <button type='submit'
         className={classes['add-todo-button']}>
-        +
       </button>
     </form>
   );

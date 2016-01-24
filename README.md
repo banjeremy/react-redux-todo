@@ -60,3 +60,4 @@ npm start
 
 ### Todo
 - [ ] organize actions and reducers into a single module with combined exports
+- [ ] add propType validation for all components

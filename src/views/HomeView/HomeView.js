@@ -7,7 +7,8 @@ import {
 import AddTodo from 'components/AddTodo/AddTodo';
 import TodoList from 'components/TodoList/TodoList';
 import ProgressBar from 'components/ProgressBar/ProgressBar';
-// import classes from './HomeView.scss';
+import ToggleBar from 'components/ToggleBar/ToggleBar';
+import classes from './HomeView.scss';
 
 export class HomeView extends React.Component {
   render () {
@@ -18,12 +19,15 @@ export class HomeView extends React.Component {
     } = this.props;
 
     return (
-      <div>
+      <div className={classes['home-view']}>
+        <ToggleBar />
         <ProgressBar progress={progress} />
         <TodoList todos={todos}
           onToggleTodo={id => dispatch(toggleTodo(id))}
         />
-        <AddTodo onAddTodo={text => dispatch(addTodo(text)) }/>
+        <footer>
+          <AddTodo onAddTodo={text => dispatch(addTodo(text)) }/>
+        </footer>
       </div>
     );
   }
