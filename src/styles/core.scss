@@ -32,4 +32,8 @@
       outline: none !important;
     }
   }
+
+  ::placeholder {
+    color: rgba($text-color, 0.4);
+  }
 }

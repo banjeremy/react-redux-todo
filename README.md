@@ -56,3 +56,7 @@ npm start
 - [ ] remove todos
 - [ ] sort todos
 - [ ] filter todos by completed status
+
+
+### Todo
+- [ ] organize actions and reducers into a single module with combined exports

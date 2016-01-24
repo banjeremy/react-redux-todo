@@ -2,7 +2,8 @@ import React from 'react';
 import classes from './AddTodo.scss';
 
 const AddTodo = ({
-  onAddTodo
+  onAddTodo,
+  placeholder = ''
 }) => {
   let input;
 
@@ -19,6 +20,7 @@ const AddTodo = ({
     }>
       <input className={classes['text-input']}
         type='text'
+        placeholder={placeholder}
         ref={(c) => input = c} />
 
       <button type='submit'
