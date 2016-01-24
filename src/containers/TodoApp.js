@@ -6,16 +6,22 @@ import {
 } from 'redux/actions';
 import AddTodo from 'components/AddTodo/AddTodo';
 import TodoList from 'components/TodoList/TodoList';
+import ProgressBar from 'components/ProgressBar/ProgressBar';
 
 class TodoApp extends React.Component {
   render () {
-    const { dispatch, todos } = this.props;
+    const {
+      dispatch,
+      todos,
+      progress
+    } = this.props;
     return (
       <div>
-        <AddTodo onAddTodo={text => dispatch(addTodo(text)) }/>
+        <ProgressBar progress={progress} />
         <TodoList todos={todos}
           onToggleTodo={id => dispatch(toggleTodo(id))}
-          />
+        />
+        <AddTodo onAddTodo={text => dispatch(addTodo(text)) }/>
       </div>
     );
   }
@@ -27,9 +33,22 @@ TodoApp.propTypes = {
     label: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired
   })).isRequired,
+  progress: PropTypes.number.isRequired,
   dispatch: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => state;
+const selectProgress = todos => {
+  if (!todos.length) return 0;
 
-export default connect(mapStateToProps)(TodoApp);
+  let done = todos.filter((t) => t.completed);
+  return (done.length / todos.length) * 100;
+};
+
+const select = state => {
+  return {
+    ...state,
+    progress: selectProgress(state.todos)
+  };
+};
+
+export default connect(select)(TodoApp);

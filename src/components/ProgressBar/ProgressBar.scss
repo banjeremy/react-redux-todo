@@ -1,0 +1,32 @@
+$height: 10px;
+$width: 200px;
+$timer: 500ms;
+
+* {
+  box-sizing: border-box;
+}
+
+.progress-bar {
+  position: relative;
+  width: $width;
+  height: $height;
+  overflow: hidden;
+}
+
+.bar {
+  height: $height;
+  position: absolute;
+  transition: all $timer ease-in-out;
+  box-sizing: content-box;
+}
+
+.empty {
+  composes: bar;
+  background-color: rgba(#000, 0.28);
+  width: 100%;
+}
+
+.progress {
+  composes: bar;
+  background-color: #F8A46B;
+}
