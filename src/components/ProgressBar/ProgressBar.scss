@@ -1,5 +1,4 @@
-$height: 10px;
-$width: 200px;
+$height: 20px;
 $timer: 500ms;
 
 * {
@@ -8,9 +7,9 @@ $timer: 500ms;
 
 .progress-bar {
   position: relative;
-  width: $width;
-  height: $height;
   overflow: hidden;
+  height: $height;
+  width: 100%;
 }
 
 .bar {

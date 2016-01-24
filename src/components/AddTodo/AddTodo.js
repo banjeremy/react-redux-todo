@@ -7,14 +7,16 @@ const AddTodo = ({
   let input;
 
   return (
-    <form onSubmit={(e) => {
-      e.preventDefault();
-      if (!input.value) {
-        return;
+    <form className={classes['add-todo']}
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (!input.value) {
+          return;
+        }
+        onAddTodo(input.value);
+        input.value = '';
       }
-      onAddTodo(input.value);
-      input.value = '';
-    }}>
+    }>
       <input className={classes['text-input']}
         type='text'
         ref={(c) => input = c} />

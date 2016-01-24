@@ -1,6 +1,26 @@
-.text-input {
-  background-color: rgba(#000, 0.1);
-  height: 45px;
-  line-height: 45px;
-  border: none;
+.add-todo {
+  position: relative;
+
+  .text-input {
+    background-color: rgba(#000, 0.1);
+    height: 45px;
+    line-height: 45px;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .add-todo-button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 3px;
+    color: #000;
+    background-color: #fff;
+    position:absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
