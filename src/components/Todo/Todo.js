@@ -7,10 +7,13 @@ const Todo = ({
   onToggleTodo
 }) => (
   <li
-    className={completed ? classes.completed : ''}
-    onClick={onToggleTodo}
+    className={completed ? classes.completed : classes.todo}
   >
-    {label}
+    <button onClick={onToggleTodo}
+      className={classes['complete']}>
+    </button>
+    <div className={classes['label']}>{label}</div>
+    <button className={classes['remove']}></button>
   </li>
 );
 

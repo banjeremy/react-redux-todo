@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.3 (16044) - http://www.bohemiancoding.com/sketch -->
+    <title>add</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Mobile-Sort-State" sketch:type="MSArtboardGroup" transform="translate(-138.000000, -428.000000)" fill="#F8A46B">
+            <g id="Action-Bar" sketch:type="MSLayerGroup" transform="translate(0.000000, 428.000000)">
+                <g id="add" transform="translate(138.000000, 0.000000)" sketch:type="MSShapeGroup">
+                    <path d="M30.25,23.375 L23.375,23.375 L23.375,30.25 C23.375,31.00625 22.760375,31.625 22,31.625 C21.239625,31.625 20.625,31.00625 20.625,30.25 L20.625,23.375 L13.75,23.375 C12.989625,23.375 12.375,22.75625 12.375,22 C12.375,21.24375 12.989625,20.625 13.75,20.625 L20.625,20.625 L20.625,13.75 C20.625,12.99375 21.239625,12.375 22,12.375 C22.760375,12.375 23.375,12.99375 23.375,13.75 L23.375,20.625 L30.25,20.625 C31.010375,20.625 31.625,21.24375 31.625,22 C31.625,22.75625 31.010375,23.375 30.25,23.375 L30.25,23.375 Z M22,0 C9.849125,0 0,9.845 0,22 C0,34.155 9.849125,44 22,44 C34.150875,44 44,34.155 44,22 C44,9.845 34.150875,0 22,0 L22,0 Z" id="Fill-25"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

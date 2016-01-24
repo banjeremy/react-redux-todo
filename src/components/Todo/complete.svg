@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.3 (16044) - http://www.bohemiancoding.com/sketch -->
+    <title>check mark</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Mobile-Active-State:-Adding-To-do" sketch:type="MSArtboardGroup" transform="translate(-10.000000, -177.000000)" fill="#FFFFFF">
+            <g id="To-Do-List" sketch:type="MSLayerGroup" transform="translate(0.000000, 85.000000)">
+                <g id="checkboxes" transform="translate(10.000000, 5.000000)" sketch:type="MSShapeGroup">
+                    <g id="check-mark" transform="translate(0.000000, 87.000000)">
+                        <path d="M22.393,10.43 C22.393,10.43 15.335,22.73 15.213,22.84 C14.81,23.22 14.177,23.2 13.8,22.8 L9.228,18.58 C8.85,18.18 8.871,17.54 9.274,17.17 C9.677,16.79 10.31,16.81 10.688,17.21 L14.266,20.51 L20.661,9.43 C20.937,8.96 21.548,8.79 22.027,9.07 C22.505,9.34 22.669,9.96 22.393,10.43 L22.393,10.43 Z M16,0 C7.164,0 0,7.16 0,16 C0,24.84 7.164,32 16,32 C24.836,32 32,24.84 32,16 C32,7.16 24.836,0 16,0 L16,0 Z" id="Fill-22"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

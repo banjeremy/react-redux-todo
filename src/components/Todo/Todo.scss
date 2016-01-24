@@ -1,3 +1,53 @@
+
+
+$height: 45px;
+
+.todo {
+  display: flex;
+  list-style: none;
+  height: $height;
+  margin: 0;
+  padding: 0 10px;
+  border-top: 1px solid rgba(#fff, 0.5);
+  background-color: rgba(#000, 0.1);
+}
+
 .completed {
-  text-decoration: line-through;
+  composes: todo;
+  background-color: rgba(#000, 0.2);
+  color: rgba(#fff, 0.5);
+
+  .complete {
+    background-image: url('components/Todo/complete.svg');
+  }
+}
+
+.label {
+  flex: 1 0 auto;
+  font-size: 15px;
+  line-height: $height;
+  vertical-align: middle;
+}
+
+.button {
+  flex: 0 0 32px;
+  border: none;
+  width: 32px;
+  height: $height;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.complete {
+  composes: button;
+  background-image: url('components/Todo/incomplete.svg');
+  margin-right: 20px;
+}
+
+.remove {
+  composes: button;
+  background-image: url('components/Todo/garbage.svg');
+  background-size: 13px 15px;
 }
