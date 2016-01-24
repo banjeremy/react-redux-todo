@@ -7,23 +7,23 @@ const AddTodo = ({
   let input;
 
   return (
-    <div>
-      <input
+    <form onSubmit={(e) => {
+      e.preventDefault();
+      if (!input.value) {
+        return;
+      }
+      onAddTodo(input.value);
+      input.value = '';
+    }}>
+      <input className={classes['text-input']}
         type='text'
         ref={(c) => input = c} />
 
-      <button className={classes['add-todo-button']}
-        onClick={() => {
-          if (!input.value) {
-            return;
-          }
-          onAddTodo(input.value);
-          input.value = '';
-        }}
-      >
+      <button type='submit'
+        className={classes['add-todo-button']}>
         +
       </button>
-    </div>
+    </form>
   );
 };
 
