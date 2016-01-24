@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {
   addTodo,
-  toggleTodo
+  toggleTodo,
+  removeTodo
 } from 'redux/actions';
 import AddTodo from 'components/AddTodo/AddTodo';
 import TodoList from 'components/TodoList/TodoList';
@@ -24,6 +25,7 @@ export class HomeView extends React.Component {
         <ProgressBar progress={progress} />
         <TodoList todos={todos}
           onToggleTodo={id => dispatch(toggleTodo(id))}
+          onRemoveTodo={id => dispatch(removeTodo(id))}
         />
         <footer>
           <AddTodo onAddTodo={text => dispatch(addTodo(text)) }/>

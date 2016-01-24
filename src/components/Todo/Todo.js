@@ -4,7 +4,8 @@ import classes from './Todo.scss';
 const Todo = ({
   label,
   completed,
-  onToggleTodo
+  onToggleTodo,
+  onRemoveTodo
 }) => (
   <li
     className={completed ? classes.completed : classes.todo}
@@ -13,7 +14,8 @@ const Todo = ({
       className={classes['complete']}>
     </button>
     <div className={classes['label']}>{label}</div>
-    <button className={classes['remove']}></button>
+    <button onClick={onRemoveTodo}
+      className={classes['remove']}></button>
   </li>
 );
 
