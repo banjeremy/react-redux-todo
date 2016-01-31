@@ -6,7 +6,7 @@ const ProgressBar = ({
 }) => {
   let label;
   if (progress) {
-    label = <span className={classes['label'] + ' hide-on-mobile'}>{progress}&#37; Complete</span>;
+    label = <span className={classes['label'] + ' hide-on-mobile'}>{progress.toFixed()}&#37; Complete</span>;
   }
   return (
     <div className={classes['progress-bar']}>
