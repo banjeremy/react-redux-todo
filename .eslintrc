@@ -15,7 +15,8 @@
     "__BASENAME__" : false
   },
   "rules": {
-    "semi" : [2, "always"]
+    "semi" : [2, "always"],
+    "indent": [2, 2]
   },
   "ecmaFeatures": {
     "spread": true

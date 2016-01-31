@@ -1,0 +1,16 @@
+.hide-on-mobile {
+  display: none;
+  @media ($tablet) {
+    display: inherit !important;
+  }
+}
+.hide-on-tablet {
+  @media ($tablet) {
+    display: none !important;
+  }
+}
+.hide-on-desktop {
+  @media ($desktop) {
+    display: none !important;
+  }
+}

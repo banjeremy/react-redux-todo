@@ -10,7 +10,7 @@ export class StartView extends React.Component {
     return (
       <div className={classes.startView + ' view'}>
         <div className={classes.inner}>
-          <h1 className={classes.heading}>Let&apos;s Do This!</h1>
+          <h1 className={classes.heading}>Let&apos;s do this.</h1>
           <AddTodo onAddTodo={text => dispatch(addTodo(text)) }/>
         </div>
       </div>

@@ -19,7 +19,7 @@ const AddTodo = ({
     }>
       <input className={classes['text-input']}
         type='text'
-        placeholder='Enter a new Todo'
+        placeholder='Enter a New Todo'
         ref={(c) => input = c} />
 
       <button type='submit'

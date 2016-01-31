@@ -1,4 +1,6 @@
+@import './variables';
 $height: 45px;
+$desktop-height: 52px;
 
 .todo {
   display: flex;
@@ -8,6 +10,14 @@ $height: 45px;
   padding: 0 10px;
   border-top: 1px solid rgba(#fff, 0.5);
   background-color: rgba(#000, 0.1);
+
+  &:last-child {
+    border-bottom: 1px solid rgba(#fff, 0.5);
+  }
+  @media ($tablet) {
+    background: transparent;
+    height: $desktop-height;
+  }
 }
 
 .completed {
@@ -25,6 +35,10 @@ $height: 45px;
   font-size: 15px;
   line-height: $height;
   vertical-align: middle;
+  @media ($tablet) {
+    font-size: 16px;
+    line-height: $desktop-height;
+  }
 }
 
 .button {
@@ -36,12 +50,18 @@ $height: 45px;
   background-position: center;
   background-repeat: no-repeat;
   background-color: transparent;
+  @media ($tablet) {
+    margin-top: 2px;
+  }
 }
 
 .complete {
   composes: button;
   background-image: url('components/Todo/incomplete.svg');
   margin-right: 20px;
+  @media ($tablet) {
+    margin-right: 30px;
+  }
 }
 
 .remove {
