@@ -2,25 +2,24 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import StartView from 'views/StartView/StartView';
 import HomeView from 'views/HomeView/HomeView';
+import Transition from 'react-addons-css-transition-group';
 
-class TodoApp extends React.Component {
-  renderStartView () {
-    return <StartView />;
-  }
+const TodoApp = ({
+  todoCount
+}) => {
+  let view = todoCount > 0
+    ? <HomeView key={0} />
+    : <StartView key={1} />;
 
-  renderHomeView () {
-    return <HomeView />;
-  }
-
-  render () {
-    const { todoCount } = this.props;
-
-    if (todoCount > 0) {
-      return this.renderHomeView();
-    } else {
-      return this.renderStartView();
-    }
-  }
+  return (
+    <Transition transitionName='slide'
+      transitionAppearTimeout={1000}
+      transitionEnterTimeout={1000}
+      transitionLeaveTimeout={1000}
+      transitionAppear>
+      {view}
+    </Transition>
+  );
 };
 
 TodoApp.propTypes = {

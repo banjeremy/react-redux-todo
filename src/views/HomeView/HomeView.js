@@ -20,7 +20,7 @@ export class HomeView extends React.Component {
     } = this.props;
 
     return (
-      <div className={classes['home-view']}>
+      <div className={classes['home-view'] + ' view'}>
         <ToggleBar />
         <ProgressBar progress={progress} />
         <TodoList todos={todos}

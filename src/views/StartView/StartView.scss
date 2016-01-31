@@ -1,9 +1,16 @@
-.start-view {
-  transform: translateY(300%);
+.startView {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
 
-  .heading {
-    color: rgba(#1CA7B3, 0.66);
-    text-align: center;
-    margin: 0;
+  .inner {
+    margin-bottom: 100px;
+
+    .heading {
+      color: rgba(#1CA7B3, 0.66);
+      text-align: center;
+      margin: 0;
+    }
   }
 }
