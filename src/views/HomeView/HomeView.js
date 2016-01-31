@@ -4,6 +4,7 @@ import {
   addTodo,
   toggleTodo,
   removeTodo,
+  moveTodo,
   toggleListFilter,
   LIST_FILTERS
 } from 'redux/actions';
@@ -25,18 +26,19 @@ export class HomeView extends React.Component {
     return (
       <div className={classes['home-view'] + ' view'}>
         <div className='wrapper'>
-            <ToggleBar
-              currentFilter={filter}
-              onToggleFilter={filter => dispatch(toggleListFilter(filter))}
-            />
-            <ProgressBar progress={progress} />
-            <TodoList todos={todos}
-              onToggleTodo={id => dispatch(toggleTodo(id))}
-              onRemoveTodo={id => dispatch(removeTodo(id))}
-            />
-            <footer className='hide-on-tablet'>
-              <AddTodo onAddTodo={text => dispatch(addTodo(text)) }/>
-            </footer>
+          <ToggleBar
+            currentFilter={filter}
+            onToggleFilter={filter => dispatch(toggleListFilter(filter))}
+          />
+          <ProgressBar progress={progress} />
+          <TodoList todos={todos}
+            onToggleTodo={id => dispatch(toggleTodo(id))}
+            onRemoveTodo={id => dispatch(removeTodo(id))}
+            onMoveTodo={(from, to) => dispatch(moveTodo(from, to))}
+          />
+          <footer className='hide-on-tablet'>
+            <AddTodo onAddTodo={text => dispatch(addTodo(text)) }/>
+          </footer>
         </div>
       </div>
     );

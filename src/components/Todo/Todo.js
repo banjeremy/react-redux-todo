@@ -5,10 +5,23 @@ const Todo = ({
   label,
   completed,
   onToggleTodo,
-  onRemoveTodo
+  onRemoveTodo,
+  onDragStart,
+  onDragEnd,
+  onDragOver,
+  index
 }) => (
   <li
-    className={completed ? classes.completed : classes.todo}
+    className={
+      completed
+      ? classes.completed
+      : classes.todo
+    }
+    draggable
+    data-index={index}
+    onDragStart={onDragStart}
+    onDragOver={onDragOver}
+    onDragEnd={onDragEnd}
   >
     <button onClick={onToggleTodo}
       className={classes['complete']}>
