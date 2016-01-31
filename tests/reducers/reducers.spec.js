@@ -1,7 +1,7 @@
 import {
   LIST_FILTERS,
   LIST_MODES,
-  setListFilter,
+  toggleListFilter,
   setListMode,
   clearTodos,
   moveTodo,
@@ -31,7 +31,7 @@ describe('filter reducer', () => {
 
   it('sets the list filter', () => {
     const stateBefore = LIST_FILTERS.SHOW_ALL;
-    const action = setListFilter(LIST_FILTERS.SHOW_INCOMPLETE);
+    const action = toggleListFilter(LIST_FILTERS.SHOW_INCOMPLETE);
     const stateAfter = LIST_FILTERS.SHOW_INCOMPLETE;
 
     expect(filter(stateBefore, action))

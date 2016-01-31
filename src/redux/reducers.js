@@ -1,7 +1,7 @@
 import {
   LIST_FILTERS,
   LIST_MODES,
-  SET_LIST_FILTER,
+  TOGGLE_LIST_FILTER,
   SET_LIST_MODE,
   CLEAR_TODOS,
   MOVE_TODO,
@@ -15,7 +15,11 @@ export const filter = (
   action
 ) => {
   switch (action.type) {
-    case SET_LIST_FILTER:
+    case TOGGLE_LIST_FILTER:
+      if (state === action.filter) {
+        // toggle filter off
+        return LIST_FILTERS.SHOW_ALL;
+      }
       return action.filter;
     default:
       return state;

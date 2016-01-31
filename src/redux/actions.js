@@ -4,7 +4,7 @@
  * action types
  */
 
-export const SET_LIST_FILTER = 'SET_LIST_FILTER';
+export const TOGGLE_LIST_FILTER = 'TOGGLE_LIST_FILTER';
 export const SET_LIST_MODE = 'SET_LIST_MODE';
 export const CLEAR_TODOS = 'CLEAR_TODOS';
 export const MOVE_TODO = 'MOVE_TODO';
@@ -32,9 +32,9 @@ export const LIST_MODES = {
  * action creators
  */
 
-export const setListFilter = (filter) => {
+export const toggleListFilter = (filter) => {
   return {
-    type: SET_LIST_FILTER,
+    type: TOGGLE_LIST_FILTER,
     filter
   };
 };

@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import {
   addTodo,
   toggleTodo,
-  removeTodo
+  removeTodo,
+  toggleListFilter,
+  LIST_FILTERS
 } from 'redux/actions';
 import AddTodo from 'components/AddTodo/AddTodo';
 import TodoList from 'components/TodoList/TodoList';
@@ -16,12 +18,16 @@ export class HomeView extends React.Component {
     const {
       dispatch,
       todos,
+      filter,
       progress
     } = this.props;
 
     return (
       <div className={classes['home-view'] + ' view'}>
-        <ToggleBar />
+        <ToggleBar
+          currentFilter={filter}
+          onToggleFilter={filter => dispatch(toggleListFilter(filter))}
+        />
         <ProgressBar progress={progress} />
         <TodoList todos={todos}
           onToggleTodo={id => dispatch(toggleTodo(id))}
@@ -36,6 +42,7 @@ export class HomeView extends React.Component {
 }
 
 HomeView.propTypes = {
+  filter: PropTypes.string.isRequired,
   todos: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     label: PropTypes.string.isRequired,
@@ -52,11 +59,23 @@ const selectProgress = todos => {
   return (done.length / todos.length) * 100;
 };
 
-const select = state => {
+const selectTodos = (todos, filter) => {
+  switch (filter) {
+    case LIST_FILTERS.SHOW_COMPLETE:
+      return todos.filter(t => t.completed);
+    case LIST_FILTERS.SHOW_INCOMPLETE:
+      return todos.filter(t => !t.completed);
+    case LIST_FILTERS.SHOW_ALL:
+      return todos;
+  }
+};
+
+const mapStateToProps = state => {
   return {
-    ...state,
+    filter: state.filter,
+    todos: selectTodos(state.todos, state.filter),
     progress: selectProgress(state.todos)
   };
 };
 
-export default connect(select)(HomeView);
+export default connect(mapStateToProps)(HomeView);

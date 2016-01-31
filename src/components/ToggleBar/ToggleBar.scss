@@ -5,7 +5,16 @@
   button {
     flex: 50%;
     border: none;
-    background-color: rgba(#fff, 0.8);
+    background-color: #fff;
     color: #9B9B9B;
+  }
+
+  .active {
+    border-top: 6px solid #1CA7B3;
+  }
+
+  .inactive {
+    border-top: 6px solid transparent;
+    background-color: #E5FBFC;
   }
 }
