@@ -1,34 +1,29 @@
 @import './variables';
-
 .startView {
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
-
   .inner {
     margin-bottom: 100px;
-
     .heading {
       color: rgba(#1CA7B3, 0.66);
       text-align: center;
       margin: 0;
-
       @media ($large-mobile) {
-          font-size: 50px;
-          margin-bottom: 20px;
+        font-size: 50px;
+        margin-bottom: 20px;
       }
       @media ($tablet) {
-          font-size: 80px;
-          margin-bottom: 50px;
-          letter-spacing: 1px;
+        font-size: 80px;
+        margin-bottom: 50px;
+        letter-spacing: 1px;
       }
       @media ($desktop) {
-          font-size: 120px;
-          margin-bottom: 80px;
-          letter-spacing: 2px;
+        font-size: 120px;
+        margin-bottom: 80px;
+        letter-spacing: 2px;
       }
     }
-
   }
 }

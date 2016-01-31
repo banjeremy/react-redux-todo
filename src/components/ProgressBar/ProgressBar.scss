@@ -1,31 +1,40 @@
+@import './variables';
 $height: 20px;
 $timer: 500ms;
-
 * {
   box-sizing: border-box;
 }
-
 .progress-bar {
   position: relative;
   overflow: hidden;
   height: $height;
   width: 100%;
+  @media ($tablet) {
+    height: $height * 2;
+    margin: 0 0 30px;
+  }
 }
-
 .bar {
   height: $height;
   position: absolute;
   transition: all $timer ease-in-out;
   box-sizing: content-box;
+  @media ($tablet) {
+    height: $height * 2;
+  }
 }
-
 .empty {
   composes: bar;
   background-color: rgba(#000, 0.28);
   width: 100%;
 }
-
 .progress {
   composes: bar;
   background-color: #F8A46B;
+}
+.label {
+  margin: 12px 40px;
+  position: absolute;
+  top: 0;
+  z-index: 5;
 }

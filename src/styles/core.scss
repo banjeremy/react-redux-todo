@@ -3,47 +3,48 @@
   @import 'vendor/normalize';
   @import './variables';
   @import './transitions';
-
+  @import './helpers';
   // Some best-practice CSS that's useful for most apps
   // Just remove them if they're not what you want
   html {
     box-sizing: border-box;
   }
-
   html,
   body {
     margin: 0;
     padding: 0;
     height: 100%;
-
     color: $text-color;
     font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
   }
-
   *,
   *:before,
   *:after {
     box-sizing: inherit;
   }
-
   input,
   button {
     &:focus {
       outline: none !important;
     }
   }
-
-  ::placeholder {
+   ::placeholder {
     color: rgba($text-color, 0.4);
   }
-
   .page-container,
   .view-container {
     height: 100vh;
     position: relative;
   }
-
   .view {
     background: $background;
+  }
+  .wrapper {
+    margin: 0 auto;
+    max-width: 960px;
+    width: 100%;
+    @media ($tablet) {
+      padding: 30px;
+    }
   }
 }

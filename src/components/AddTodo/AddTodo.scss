@@ -1,11 +1,10 @@
 @import './variables';
-
 .add-todo {
   position: relative;
-
+  
   @media ($large-mobile) {
-      max-width: 320px;
-      margin: 0 auto;
+    max-width: 320px;
+    margin: 0 auto;
   }
 
   .text-input {
@@ -23,14 +22,12 @@
     background-position: center;
     background-repeat: no-repeat;
     background-color: transparent;
-    background-image: url('components/AddTodo/add.svg');
-
+    background-image: url(components/AddTodo/add.svg);
     width: 32px;
     height: 45px;
     border: none;
     border-radius: 3px;
-
-    position:absolute;
+    position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
