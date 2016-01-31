@@ -5,3 +5,11 @@
 $text-color: #FFF;
 $accent-color: #F8A46B;
 $background: linear-gradient(-180deg, rgba(80,229,236,1) 0%, rgba(14,213,140,1) 100%);
+
+/*
+ * media queries
+ */
+
+ $large-mobile: 'min-width: 600px';
+ $tablet: 'min-width: 800px';
+ $desktop: 'min-width: 1200px'; 

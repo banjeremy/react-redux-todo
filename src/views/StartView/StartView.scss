@@ -1,3 +1,5 @@
+@import './variables';
+
 .startView {
   display: flex;
   flex-direction: column;
@@ -11,6 +13,22 @@
       color: rgba(#1CA7B3, 0.66);
       text-align: center;
       margin: 0;
+
+      @media ($large-mobile) {
+          font-size: 50px;
+          margin-bottom: 20px;
+      }
+      @media ($tablet) {
+          font-size: 80px;
+          margin-bottom: 50px;
+          letter-spacing: 1px;
+      }
+      @media ($desktop) {
+          font-size: 120px;
+          margin-bottom: 80px;
+          letter-spacing: 2px;
+      }
     }
+
   }
 }
