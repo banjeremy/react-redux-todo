@@ -37,6 +37,15 @@ describe('filter reducer', () => {
     expect(filter(stateBefore, action))
       .to.equal(stateAfter);
   });
+
+  it('toggles the list filter', () => {
+    const stateBefore = LIST_FILTERS.SHOW_COMPLETE;
+    const action = toggleListFilter(LIST_FILTERS.SHOW_COMPLETE);
+    const stateAfter = LIST_FILTERS.SHOW_ALL;
+
+    expect(filter(stateBefore, action))
+      .to.equal(stateAfter);
+  });
 });
 
 describe('mode reducer', () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './ToggleBar.scss';
+import classes from './ActionBar.scss';
 
 const ActionBar = () => {
   return (
