@@ -1,12 +1,5 @@
 .home-view {
   height: 100vh;
-
-  footer {
-    position: fixed;
-    bottom: 0;
-    height: 45px;
-    width: 100%;
-  }
 }
 
 .wrapper {
@@ -28,5 +21,4 @@
   overflow: auto;
   flex: 1 1 auto;
   height: auto;
-  margin-bottom: 45px;
 }

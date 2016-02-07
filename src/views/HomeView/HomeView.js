@@ -6,6 +6,7 @@ import {
 } from 'redux/modules/todos';
 import ActionBar from 'components/ActionBar/ActionBar';
 import AddTodo from 'components/AddTodo/AddTodo';
+import Modal from 'components/Modal/Modal';
 import TodoList from 'components/TodoList/TodoList';
 import ProgressBar from 'components/ProgressBar/ProgressBar';
 import ToggleBar from 'components/ToggleBar/ToggleBar';
@@ -58,6 +59,10 @@ export class HomeView extends React.Component {
 
           <footer className={'hide-on-tablet ' + classes['footer']}>
             <ActionBar />
+            <Modal isActive={false}
+              handleAccept={() => { console.log('accept'); }}
+              handleReject={() => { console.log('reject'); }}
+            />
           </footer>
         </div>
       </div>
