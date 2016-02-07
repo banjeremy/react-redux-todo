@@ -12,6 +12,9 @@ const SET_LIST_MODE = 'todo-app/todos/SET_LIST_MODE';
 const CLEAR_TODOS = 'todo-app/todos/CLEAR_TODOS';
 const MOVE_TODO = 'todo-app/todos/MOVE_TODO';
 
+const REQUEST_TODOS = 'todo-app/todos/REQUEST_TODOS';
+const RECEIVE_TODOS = 'todo-app/todos/RECEIVE_TODOS';
+
 const ADD_TODO = 'todo-app/todos/ADD_TODO';
 const REMOVE_TODO = 'todo-app/todos/REMOVE_TODO';
 const TOGGLE_TODO = 'todo-app/todos/TOGGLE_TODO';
@@ -67,11 +70,16 @@ const moveTodo = (
   };
 };
 
-let nextTodoId = 0;
+const getRandomString = () => {
+  var x = 2147483648;
+  return Math.floor(Math.random() * x).toString(36) +
+         Math.abs(Math.floor(Math.random() * x) ^ Date.now()).toString(36);
+};
+
 const addTodo = (label) => {
   return {
     type: ADD_TODO,
-    id: nextTodoId++,
+    id: getRandomString(),
     label
   };
 };
@@ -90,6 +98,40 @@ const toggleTodo = (id) => {
   };
 };
 
+const requestTodos = () => {
+  return {
+    type: REQUEST_TODOS
+  };
+};
+
+const receiveTodos = (todos) => {
+  return {
+    type: RECEIVE_TODOS,
+    todos
+  };
+};
+
+const fetchTodos = () => {
+  return dispatch => {
+    dispatch(requestTodos());
+
+    const todos = JSON.parse(
+      window.localStorage.getItem('todos')
+    );
+
+    dispatch(receiveTodos(todos));
+  };
+};
+
+const saveTodos = () => {
+  return (dispatch, getState) => {
+    window.localStorage.setItem(
+      'todos',
+      JSON.stringify(getState().todos)
+    );
+  };
+};
+
 export const actions = {
   toggleListFilter,
   setListMode,
@@ -97,7 +139,9 @@ export const actions = {
   moveTodo,
   addTodo,
   removeTodo,
-  toggleTodo
+  toggleTodo,
+  fetchTodos,
+  saveTodos
 };
 
 /*
@@ -161,6 +205,8 @@ const todos = (
   action
 ) => {
   switch (action.type) {
+    case RECEIVE_TODOS:
+      return action.todos;
     case ADD_TODO:
       return [
         ...state,

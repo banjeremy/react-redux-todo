@@ -28,12 +28,24 @@ export class HomeView extends React.Component {
           />
           <ProgressBar progress={progress} />
           <TodoList todos={todos}
-            onToggleTodo={id => dispatch(todoActions.toggleTodo(id))}
-            onRemoveTodo={id => dispatch(todoActions.removeTodo(id))}
-            onMoveTodo={(from, to) => dispatch(todoActions.moveTodo(from, to))}
+            onToggleTodo={id => {
+              dispatch(todoActions.toggleTodo(id));
+              dispatch(todoActions.saveTodos());
+            }}
+            onRemoveTodo={id => {
+              dispatch(todoActions.removeTodo(id));
+              dispatch(todoActions.saveTodos());
+            }}
+            onMoveTodo={(from, to) => {
+              dispatch(todoActions.moveTodo(from, to));
+              dispatch(todoActions.saveTodos());
+            }}
           />
           <footer className='hide-on-tablet'>
-            <AddTodo onAddTodo={text => dispatch(todoActions.addTodo(text)) }/>
+            <AddTodo onAddTodo={text => {
+              dispatch(todoActions.addTodo(text));
+              dispatch(todoActions.saveTodos());
+            }}/>
           </footer>
         </div>
       </div>
@@ -44,7 +56,7 @@ export class HomeView extends React.Component {
 HomeView.propTypes = {
   filter: PropTypes.string.isRequired,
   todos: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired
   })).isRequired,
