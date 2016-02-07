@@ -34,7 +34,7 @@ TodoApp.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    todoCount: state.todos.length
+    todoCount: state.todos.items.length
   };
 };
 

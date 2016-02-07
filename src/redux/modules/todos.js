@@ -127,7 +127,7 @@ const saveTodos = () => {
   return (dispatch, getState) => {
     window.localStorage.setItem(
       'todos',
-      JSON.stringify(getState().todos)
+      JSON.stringify(getState().todos.items)
     );
   };
 };
@@ -201,21 +201,32 @@ const todo = (
 };
 
 const todos = (
-  state = [],
+  state = {
+    isFetching: false,
+    isClearing: false,
+    items: []
+  },
   action
 ) => {
   switch (action.type) {
     case RECEIVE_TODOS:
-      return action.todos;
-    case ADD_TODO:
-      return [
+      return {
         ...state,
-        todo(undefined, action)
-      ];
+        items: action.todos
+      };
+    case ADD_TODO:
+      return {
+        ...state,
+        items: [
+          ...state.items,
+          todo(undefined, action)
+        ]
+      };
+
     case TOGGLE_TODO:
-      return state.map(t => todo(t, action));
+      return state.items.map(t => todo(t, action));
     case MOVE_TODO:
-      let todosCopy = state.slice(0);
+      let todosCopy = state.items.slice(0);
 
       todosCopy.splice(
         action.newIndex,
@@ -223,11 +234,20 @@ const todos = (
         todosCopy.splice(action.currentIndex, 1)[0]
       );
 
-      return todosCopy;
+      return {
+        ...state,
+        items: todosCopy
+      };
     case REMOVE_TODO:
-      return state.filter((t) => t.id !== action.id);
+      return {
+        ...state,
+        items: state.items.filter((t) => t.id !== action.id)
+      };
     case CLEAR_TODOS:
-      return [];
+      return {
+        ...state,
+        items: []
+      };
     default:
       return state;
   }

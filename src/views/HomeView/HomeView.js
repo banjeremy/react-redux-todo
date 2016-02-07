@@ -102,8 +102,8 @@ const selectTodos = (todos, filter) => {
 const mapStateToProps = state => {
   return {
     filter: state.filter,
-    todos: selectTodos(state.todos, state.filter),
-    progress: selectProgress(state.todos)
+    todos: selectTodos(state.todos.items, state.filter),
+    progress: selectProgress(state.todos.items)
   };
 };
 
