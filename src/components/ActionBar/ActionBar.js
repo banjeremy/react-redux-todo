@@ -1,11 +1,13 @@
 import React from 'react';
 import classes from './ActionBar.scss';
 
-const ActionBar = () => {
+const ActionBar = ({
+  handleClear
+}) => {
   return (
     <div className={classes['action-bar']}>
       <button>Sort</button>
-      <button>Clear</button>
+      <button onClick={handleClear}>Clear</button>
     </div>
   );
 };

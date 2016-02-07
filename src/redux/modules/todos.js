@@ -9,6 +9,7 @@
 
 const TOGGLE_LIST_FILTER = 'todo-app/todos/TOGGLE_LIST_FILTER';
 const SET_LIST_MODE = 'todo-app/todos/SET_LIST_MODE';
+const TOGGLE_IS_CLEARING = 'todo-app/todos/TOGGLE_IS_CLEARING';
 const CLEAR_TODOS = 'todo-app/todos/CLEAR_TODOS';
 const MOVE_TODO = 'todo-app/todos/MOVE_TODO';
 
@@ -50,6 +51,12 @@ const setListMode = (mode) => {
   return {
     type: SET_LIST_MODE,
     mode
+  };
+};
+
+const toggleIsClearing = () => {
+  return {
+    type: TOGGLE_IS_CLEARING
   };
 };
 
@@ -135,6 +142,7 @@ const saveTodos = () => {
 export const actions = {
   toggleListFilter,
   setListMode,
+  toggleIsClearing,
   clearTodos,
   moveTodo,
   addTodo,
@@ -243,9 +251,15 @@ const todos = (
         ...state,
         items: state.items.filter((t) => t.id !== action.id)
       };
+    case TOGGLE_IS_CLEARING:
+      return {
+        ...state,
+        isClearing: !state.isClearing
+      };
     case CLEAR_TODOS:
       return {
         ...state,
+        isClearing: false,
         items: []
       };
     default:

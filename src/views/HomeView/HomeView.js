@@ -17,6 +17,8 @@ export class HomeView extends React.Component {
     const {
       dispatch,
       todos,
+      isFetching,
+      isClearing,
       filter,
       progress
     } = this.props;
@@ -58,10 +60,13 @@ export class HomeView extends React.Component {
           </div>
 
           <footer className={'hide-on-tablet ' + classes['footer']}>
-            <ActionBar />
-            <Modal isActive={false}
-              handleAccept={() => { console.log('accept'); }}
-              handleReject={() => { console.log('reject'); }}
+            <ActionBar handleClear={ () => {
+              dispatch(todoActions.toggleIsClearing());
+              dispatch(todoActions.saveTodos());
+            }}/>
+            <Modal isActive={isClearing}
+              handleAccept={() => dispatch(todoActions.clearTodos()) }
+              handleReject={() => dispatch(todoActions.toggleIsClearing()) }
             />
           </footer>
         </div>
@@ -77,6 +82,8 @@ HomeView.propTypes = {
     label: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired
   })).isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  isClearing: PropTypes.bool.isRequired,
   progress: PropTypes.number.isRequired,
   dispatch: PropTypes.func.isRequired
 };
@@ -103,6 +110,8 @@ const mapStateToProps = state => {
   return {
     filter: state.filter,
     todos: selectTodos(state.todos.items, state.filter),
+    isFetching: state.todos.isFetching,
+    isClearing: state.todos.isClearing,
     progress: selectProgress(state.todos.items)
   };
 };
