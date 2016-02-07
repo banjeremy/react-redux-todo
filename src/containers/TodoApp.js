@@ -26,9 +26,10 @@ TodoApp.propTypes = {
   todoCount: PropTypes.number.isRequired
 };
 
-const select = state => {
+const mapStateToProps = state => {
   return {
     todoCount: state.todos.length
   };
 };
-export default connect(select)(TodoApp);
+
+export default connect(mapStateToProps)(TodoApp);

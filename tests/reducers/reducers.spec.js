@@ -1,21 +1,4 @@
-import {
-  LIST_FILTERS,
-  LIST_MODES,
-  toggleListFilter,
-  setListMode,
-  clearTodos,
-  moveTodo,
-  addTodo,
-  removeTodo,
-  toggleTodo
-} from 'redux/actions';
-
-import {
-  todos,
-  todo,
-  mode,
-  filter
-} from 'redux/reducers';
+import {actions, constants, reducers} from 'redux/modules/todos';
 
 import rootReducer from 'redux/rootReducer';
 
@@ -23,27 +6,27 @@ describe('filter reducer', () => {
   it('returns an initial state', () => {
     const stateBefore = undefined;
     const action = {};
-    const stateAfter = LIST_FILTERS.SHOW_ALL;
+    const stateAfter = constants.LIST_FILTERS.SHOW_ALL;
 
-    expect(filter(stateBefore, action))
+    expect(reducers.filter(stateBefore, action))
       .to.equal(stateAfter);
   });
 
   it('sets the list filter', () => {
-    const stateBefore = LIST_FILTERS.SHOW_ALL;
-    const action = toggleListFilter(LIST_FILTERS.SHOW_INCOMPLETE);
-    const stateAfter = LIST_FILTERS.SHOW_INCOMPLETE;
+    const stateBefore = constants.LIST_FILTERS.SHOW_ALL;
+    const action = actions.toggleListFilter(constants.LIST_FILTERS.SHOW_INCOMPLETE);
+    const stateAfter = constants.LIST_FILTERS.SHOW_INCOMPLETE;
 
-    expect(filter(stateBefore, action))
+    expect(reducers.filter(stateBefore, action))
       .to.equal(stateAfter);
   });
 
   it('toggles the list filter', () => {
-    const stateBefore = LIST_FILTERS.SHOW_COMPLETE;
-    const action = toggleListFilter(LIST_FILTERS.SHOW_COMPLETE);
-    const stateAfter = LIST_FILTERS.SHOW_ALL;
+    const stateBefore = constants.LIST_FILTERS.SHOW_COMPLETE;
+    const action = actions.toggleListFilter(constants.LIST_FILTERS.SHOW_COMPLETE);
+    const stateAfter = constants.LIST_FILTERS.SHOW_ALL;
 
-    expect(filter(stateBefore, action))
+    expect(reducers.filter(stateBefore, action))
       .to.equal(stateAfter);
   });
 });
@@ -52,18 +35,18 @@ describe('mode reducer', () => {
   it('returns an initial state', () => {
     const stateBefore = undefined;
     const action = {};
-    const stateAfter = LIST_MODES.INSERT;
+    const stateAfter = constants.LIST_MODES.INSERT;
 
-    expect(mode(stateBefore, action))
+    expect(reducers.mode(stateBefore, action))
       .to.equal(stateAfter);
   });
 
   it('sets the list mode', () => {
-    const stateBefore = LIST_MODES.INSERT;
-    const action = setListMode(LIST_MODES.SORT);
-    const stateAfter = LIST_MODES.SORT;
+    const stateBefore = constants.LIST_MODES.INSERT;
+    const action = actions.setListMode(constants.LIST_MODES.SORT);
+    const stateAfter = constants.LIST_MODES.SORT;
 
-    expect(mode(stateBefore, action))
+    expect(reducers.mode(stateBefore, action))
       .to.equal(stateAfter);
   });
 });
@@ -73,8 +56,8 @@ describe('root reducer', () => {
     const stateBefore = undefined;
     const action = {};
     const stateAfter = {
-      filter: LIST_FILTERS.SHOW_ALL,
-      mode: LIST_MODES.INSERT,
+      filter: constants.LIST_FILTERS.SHOW_ALL,
+      mode: constants.LIST_MODES.INSERT,
       todos: []
     };
 
@@ -89,14 +72,14 @@ describe('root reducer', () => {
 describe('todo reducer', () => {
   it('creates a todo', () => {
     const stateBefore = undefined;
-    const action = addTodo('go shopping');
+    const action = actions.addTodo('go shopping');
     const stateAfter = {
       id: 0,
       label: 'go shopping',
       completed: false
     };
 
-    expect(todo(stateBefore, action))
+    expect(reducers.todo(stateBefore, action))
       .to.deep.equal(stateAfter);
   });
 
@@ -106,14 +89,14 @@ describe('todo reducer', () => {
       id: 0,
       completed: false
     };
-    const action = toggleTodo(0);
+    const action = actions.toggleTodo(0);
     const stateAfter = {
       label: 'go shopping',
       id: 0,
       completed: true
     };
 
-    expect(todo(stateBefore, action))
+    expect(reducers.todo(stateBefore, action))
       .to.deep.equal(stateAfter);
   });
 });
@@ -125,7 +108,7 @@ describe('todos reducer', () => {
       id: 0,
       completed: false
     }];
-    const action = addTodo('go to work');
+    const action = actions.addTodo('go to work');
     const stateAfter = [{
       id: 0,
       label: 'go shopping',
@@ -136,7 +119,7 @@ describe('todos reducer', () => {
       completed: false
     }];
 
-    expect(todos(stateBefore, action))
+    expect(reducers.todos(stateBefore, action))
       .to.deep.equal(stateAfter);
   });
 
@@ -154,7 +137,7 @@ describe('todos reducer', () => {
       label: 'make a todo app',
       completed: false
     }];
-    const action = toggleTodo(1);
+    const action = actions.toggleTodo(1);
     const stateAfter = [{
       id: 0,
       label: 'go shopping',
@@ -169,7 +152,7 @@ describe('todos reducer', () => {
       completed: false
     }];
 
-    expect(todos(stateBefore, action))
+    expect(reducers.todos(stateBefore, action))
       .to.deep.equal(stateAfter);
   });
 
@@ -187,7 +170,7 @@ describe('todos reducer', () => {
       label: 'make a todo app',
       completed: false
     }];
-    const action = moveTodo(2, 0);
+    const action = actions.moveTodo(2, 0);
     const stateAfter = [{
       id: 2,
       label: 'make a todo app',
@@ -202,7 +185,7 @@ describe('todos reducer', () => {
       completed: false
     }];
 
-    expect(todos(stateBefore, action))
+    expect(reducers.todos(stateBefore, action))
       .to.deep.equal(stateAfter);
   });
 
@@ -220,7 +203,7 @@ describe('todos reducer', () => {
       label: 'go to work',
       completed: false
     }];
-    const action = removeTodo(0);
+    const action = actions.removeTodo(0);
     const stateAfter = [{
       id: 2,
       label: 'make a todo app',
@@ -231,7 +214,7 @@ describe('todos reducer', () => {
       completed: false
     }];
 
-    expect(todos(stateBefore, action))
+    expect(reducers.todos(stateBefore, action))
       .to.deep.equal(stateAfter);
   });
 
@@ -249,10 +232,10 @@ describe('todos reducer', () => {
       label: 'go to work',
       completed: false
     }];
-    const action = clearTodos();
+    const action = actions.clearTodos();
     const stateAfter = [];
 
-    expect(todos(stateBefore, action))
+    expect(reducers.todos(stateBefore, action))
       .to.deep.equal(stateAfter);
   });
 });

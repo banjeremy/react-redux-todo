@@ -1,13 +1,9 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {
-  addTodo,
-  toggleTodo,
-  removeTodo,
-  moveTodo,
-  toggleListFilter,
-  LIST_FILTERS
-} from 'redux/actions';
+  actions as todoActions,
+  constants as todoConstants
+} from 'redux/modules/todos';
 import AddTodo from 'components/AddTodo/AddTodo';
 import TodoList from 'components/TodoList/TodoList';
 import ProgressBar from 'components/ProgressBar/ProgressBar';
@@ -28,16 +24,16 @@ export class HomeView extends React.Component {
         <div className='wrapper'>
           <ToggleBar
             currentFilter={filter}
-            onToggleFilter={filter => dispatch(toggleListFilter(filter))}
+            onToggleFilter={filter => dispatch(todoActions.toggleListFilter(filter))}
           />
           <ProgressBar progress={progress} />
           <TodoList todos={todos}
-            onToggleTodo={id => dispatch(toggleTodo(id))}
-            onRemoveTodo={id => dispatch(removeTodo(id))}
-            onMoveTodo={(from, to) => dispatch(moveTodo(from, to))}
+            onToggleTodo={id => dispatch(todoActions.toggleTodo(id))}
+            onRemoveTodo={id => dispatch(todoActions.removeTodo(id))}
+            onMoveTodo={(from, to) => dispatch(todoActions.moveTodo(from, to))}
           />
           <footer className='hide-on-tablet'>
-            <AddTodo onAddTodo={text => dispatch(addTodo(text)) }/>
+            <AddTodo onAddTodo={text => dispatch(todoActions.addTodo(text)) }/>
           </footer>
         </div>
       </div>
@@ -65,11 +61,11 @@ const selectProgress = todos => {
 
 const selectTodos = (todos, filter) => {
   switch (filter) {
-    case LIST_FILTERS.SHOW_COMPLETE:
+    case todoConstants.LIST_FILTERS.SHOW_COMPLETE:
       return todos.filter(t => t.completed);
-    case LIST_FILTERS.SHOW_INCOMPLETE:
+    case todoConstants.LIST_FILTERS.SHOW_INCOMPLETE:
       return todos.filter(t => !t.completed);
-    case LIST_FILTERS.SHOW_ALL:
+    case todoConstants.LIST_FILTERS.SHOW_ALL:
       return todos;
   }
 };
