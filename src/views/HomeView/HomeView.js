@@ -4,6 +4,7 @@ import {
   actions as todoActions,
   constants as todoConstants
 } from 'redux/modules/todos';
+import ActionBar from 'components/ActionBar/ActionBar';
 import AddTodo from 'components/AddTodo/AddTodo';
 import TodoList from 'components/TodoList/TodoList';
 import ProgressBar from 'components/ProgressBar/ProgressBar';
@@ -21,31 +22,42 @@ export class HomeView extends React.Component {
 
     return (
       <div className={classes['home-view'] + ' view'}>
-        <div className='wrapper'>
-          <ToggleBar
-            currentFilter={filter}
-            onToggleFilter={filter => dispatch(todoActions.toggleListFilter(filter))}
-          />
-          <ProgressBar progress={progress} />
-          <TodoList todos={todos}
-            onToggleTodo={id => {
-              dispatch(todoActions.toggleTodo(id));
-              dispatch(todoActions.saveTodos());
-            }}
-            onRemoveTodo={id => {
-              dispatch(todoActions.removeTodo(id));
-              dispatch(todoActions.saveTodos());
-            }}
-            onMoveTodo={(from, to) => {
-              dispatch(todoActions.moveTodo(from, to));
-              dispatch(todoActions.saveTodos());
-            }}
-          />
-          <footer className='hide-on-tablet'>
+        <div className={classes.wrapper}>
+          <div className={classes['toggle-bar-container']}>
+            <ToggleBar currentFilter={filter}
+              onToggleFilter={filter => dispatch(todoActions.toggleListFilter(filter))}
+            />
+          </div>
+          <div className={classes['add-todo-container']}>
             <AddTodo onAddTodo={text => {
               dispatch(todoActions.addTodo(text));
               dispatch(todoActions.saveTodos());
             }}/>
+          </div>
+
+          <div className={classes['progress-bar-container']}>
+            <ProgressBar progress={progress} />
+          </div>
+
+          <div className={classes['todo-list-container']}>
+            <TodoList todos={todos}
+              onToggleTodo={id => {
+                dispatch(todoActions.toggleTodo(id));
+                dispatch(todoActions.saveTodos());
+              }}
+              onRemoveTodo={id => {
+                dispatch(todoActions.removeTodo(id));
+                dispatch(todoActions.saveTodos());
+              }}
+              onMoveTodo={(from, to) => {
+                dispatch(todoActions.moveTodo(from, to));
+                dispatch(todoActions.saveTodos());
+              }}
+            />
+          </div>
+
+          <footer className={'hide-on-tablet ' + classes['footer']}>
+            <ActionBar />
           </footer>
         </div>
       </div>

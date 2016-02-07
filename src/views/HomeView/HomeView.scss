@@ -8,3 +8,25 @@
     width: 100%;
   }
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  max-height: 100vh;
+}
+
+.toggle-bar-container,
+.add-todo-container,
+.progress-bar-container,
+.footer {
+  flex: 0 0 auto;
+}
+
+.todo-list-container {
+  overflow: auto;
+  flex: 1 1 auto;
+  height: auto;
+  margin-bottom: 45px;
+}

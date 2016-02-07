@@ -119,7 +119,7 @@ const fetchTodos = () => {
       window.localStorage.getItem('todos')
     );
 
-    dispatch(receiveTodos(todos));
+    dispatch(receiveTodos(todos || []));
   };
 };
 

@@ -1,7 +1,7 @@
 @import './variables';
 .add-todo {
   position: relative;
-  
+
   @media ($large-mobile) {
     max-width: 320px;
     margin: 0 auto;

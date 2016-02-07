@@ -28,13 +28,16 @@
       outline: none !important;
     }
   }
-   ::placeholder {
-    color: rgba($text-color, 0.4);
+
+  ::placeholder {
+    color: rgba($text-color, 0.75);
   }
+
   .page-container,
   .view-container {
     height: 100vh;
     position: relative;
+    overflow: hidden;
   }
   .view {
     background: $background;
@@ -43,6 +46,7 @@
     margin: 0 auto;
     max-width: 960px;
     width: 100%;
+    
     @media ($tablet) {
       padding: 30px;
     }
