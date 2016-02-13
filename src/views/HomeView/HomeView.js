@@ -10,6 +10,8 @@ import Modal from 'components/Modal/Modal';
 import TodoList from 'components/TodoList/TodoList';
 import ProgressBar from 'components/ProgressBar/ProgressBar';
 import ToggleBar from 'components/ToggleBar/ToggleBar';
+import DesktopActionBar from 'components/DesktopActionBar/DesktopActionBar';
+import MediaQuery from 'react-responsive';
 import classes from './HomeView.scss';
 
 export class HomeView extends React.Component {
@@ -24,22 +26,29 @@ export class HomeView extends React.Component {
     return (
       <div className={classes['home-view'] + ' view'}>
         <div className={classes.wrapper}>
-          <div className={classes['toggle-bar-container']}>
-            <ToggleBar currentFilter={filter}
-              onToggleFilter={filter => dispatch(todoActions.toggleListFilter(filter))}
-            />
-          </div>
-          <div className={classes['add-todo-container']}>
-            <AddTodo onAddTodo={text => {
-              dispatch(todoActions.addTodo(text));
-              dispatch(todoActions.saveTodos());
-            }}/>
-          </div>
+          <MediaQuery maxWidth={800}>
+            <div className={classes['toggle-bar-container']}>
+              <ToggleBar currentFilter={filter}
+                onToggleFilter={filter => dispatch(todoActions.toggleListFilter(filter))}
+              />
+            </div>
+            <div className={classes['add-todo-container']}>
+              <AddTodo onAddTodo={text => {
+                dispatch(todoActions.addTodo(text));
+                dispatch(todoActions.saveTodos());
+              }}/>
+            </div>
+          </MediaQuery>
 
           <div className={classes['progress-bar-container']}>
             <ProgressBar progress={progress} />
           </div>
-
+          <MediaQuery minWidth={801}>
+            <DesktopActionBar currentFilter={filter}
+              onToggleFilter={filter => dispatch(todoActions.toggleListFilter(filter))}
+              onAddTodo={text => { dispatch(todoActions.addTodo(text)); dispatch(todoActions.saveTodos()); }}
+              handleClear={ () => { dispatch(todoActions.toggleIsClearing()); dispatch(todoActions.saveTodos()); }} />
+          </MediaQuery>
           <div className={classes['todo-list-container']}>
             <TodoList todos={todos.items}
               onToggleTodo={id => {
@@ -56,17 +65,18 @@ export class HomeView extends React.Component {
               }}
             />
           </div>
-
-          <footer className={'hide-on-tablet ' + classes['footer']}>
-            <ActionBar handleClear={ () => {
-              dispatch(todoActions.toggleIsClearing());
-              dispatch(todoActions.saveTodos());
-            }}/>
-          <Modal isActive={todos.isClearing}
-              handleAccept={() => dispatch(todoActions.clearTodos()) }
-              handleReject={() => dispatch(todoActions.toggleIsClearing()) }
-            />
-          </footer>
+          <MediaQuery maxWidth={800}>
+            <footer className={classes['footer']}>
+              <ActionBar handleClear={ () => {
+                dispatch(todoActions.toggleIsClearing());
+                dispatch(todoActions.saveTodos());
+              }}/>
+            <Modal isActive={todos.isClearing}
+                handleAccept={() => dispatch(todoActions.clearTodos()) }
+                handleReject={() => dispatch(todoActions.toggleIsClearing()) }
+              />
+            </footer>
+          </MediaQuery>
         </div>
       </div>
     );

@@ -11,7 +11,9 @@ export class StartView extends React.Component {
       <div className={classes.startView + ' view'}>
         <div className={classes.inner}>
           <h1 className={classes.heading}>Let&apos;s do this.</h1>
-          <AddTodo onAddTodo={text => dispatch(todoActions.addTodo(text)) }/>
+          <div className={classes['add-todo']}>
+            <AddTodo onAddTodo={text => dispatch(todoActions.addTodo(text)) }/>
+          </div>
         </div>
       </div>
     );

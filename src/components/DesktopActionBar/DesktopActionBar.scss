@@ -1,0 +1,21 @@
+@import './variables';
+
+.action-bar {
+
+  &--desktop {
+    background-color: $button-color;
+    color: $button-text-color;
+    flex: 1 0 100%;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+
+    .filter {
+      max-width: 36rem;
+      width: 100%;
+
+      .icon {
+        width: 50px;
+      }
+    }
+  }
+}
