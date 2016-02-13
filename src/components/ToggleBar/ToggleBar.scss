@@ -1,15 +1,17 @@
+@import './variables';
+
 .toggle-bar {
   display: flex;
-  height: 45px;
+  height: 4.5rem;
 
   button {
     flex: 50%;
     border: none;
-    background-color: #fff;
-    color: #9B9B9B;
+    background-color: $button-hover-color;
+    color: $button-text-color;
 
     &:hover {
-      background-color: #fff;
+      background-color: $button-hover-color;
     }
   }
 
@@ -19,6 +21,6 @@
 
   .inactive {
     border-top: 6px solid transparent;
-    background-color: #E5FBFC;
+    background-color: $button-color;
   }
 }

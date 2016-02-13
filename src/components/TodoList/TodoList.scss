@@ -1,8 +1,10 @@
+@import './variables';
+
 .todo-list {
   margin: 0;
   padding: 0;
 }
 
 .drag-over {
-  border: 2px dashed #fff !important;
+  border: 2px dashed $text-color !important;
 }

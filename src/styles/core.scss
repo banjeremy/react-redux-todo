@@ -8,6 +8,7 @@
   // Just remove them if they're not what you want
   html {
     box-sizing: border-box;
+    font-size: 62.5%;
   }
   html,
   body {
@@ -41,14 +42,5 @@
   }
   .view {
     background: $background;
-  }
-  .wrapper {
-    margin: 0 auto;
-    max-width: 960px;
-    width: 100%;
-    
-    @media ($tablet) {
-      padding: 30px;
-    }
   }
 }

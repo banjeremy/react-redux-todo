@@ -18,7 +18,7 @@ const AddTodo = ({
       }
     }>
       <input className={classes['text-input']}
-        type='text'
+        type='text' autoFocus='true'
         placeholder='Enter a New Todo'
         ref={(c) => input = c} />
 

@@ -4,24 +4,29 @@
   flex-direction: column;
   height: 100vh;
   justify-content: center;
+
   .inner {
-    margin-bottom: 100px;
+    margin-bottom: 10rem;
+
     .heading {
       color: rgba(#1CA7B3, 0.66);
       text-align: center;
       margin: 0;
+
       @media ($large-mobile) {
-        font-size: 50px;
-        margin-bottom: 20px;
+        font-size: 5rem;
+        margin-bottom: 2rem;
       }
+
       @media ($tablet) {
-        font-size: 80px;
-        margin-bottom: 50px;
+        font-size: 8rem;
+        margin-bottom: 5rem;
         letter-spacing: 1px;
       }
+
       @media ($desktop) {
-        font-size: 120px;
-        margin-bottom: 80px;
+        font-size: 12rem;
+        margin-bottom: 8rem;
         letter-spacing: 2px;
       }
     }
