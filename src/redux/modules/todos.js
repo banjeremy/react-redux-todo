@@ -134,7 +134,7 @@ const saveTodos = () => {
   return (dispatch, getState) => {
     window.localStorage.setItem(
       'todos',
-      JSON.stringify(getState().todos.items)
+      JSON.stringify(getState().todos.items || [])
     );
   };
 };
@@ -232,7 +232,10 @@ const todos = (
       };
 
     case TOGGLE_TODO:
-      return state.items.map(t => todo(t, action));
+      return {
+        ...state,
+        items: state.items.map(t => todo(t, action))
+      };
     case MOVE_TODO:
       let todosCopy = state.items.slice(0);
 

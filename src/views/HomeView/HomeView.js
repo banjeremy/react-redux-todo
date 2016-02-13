@@ -17,8 +17,6 @@ export class HomeView extends React.Component {
     const {
       dispatch,
       todos,
-      isFetching,
-      isClearing,
       filter,
       progress
     } = this.props;
@@ -43,7 +41,7 @@ export class HomeView extends React.Component {
           </div>
 
           <div className={classes['todo-list-container']}>
-            <TodoList todos={todos}
+            <TodoList todos={todos.items}
               onToggleTodo={id => {
                 dispatch(todoActions.toggleTodo(id));
                 dispatch(todoActions.saveTodos());
@@ -64,7 +62,7 @@ export class HomeView extends React.Component {
               dispatch(todoActions.toggleIsClearing());
               dispatch(todoActions.saveTodos());
             }}/>
-            <Modal isActive={isClearing}
+          <Modal isActive={todos.isClearing}
               handleAccept={() => dispatch(todoActions.clearTodos()) }
               handleReject={() => dispatch(todoActions.toggleIsClearing()) }
             />
@@ -77,41 +75,44 @@ export class HomeView extends React.Component {
 
 HomeView.propTypes = {
   filter: PropTypes.string.isRequired,
-  todos: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    completed: PropTypes.bool.isRequired
-  })).isRequired,
-  isFetching: PropTypes.bool.isRequired,
-  isClearing: PropTypes.bool.isRequired,
+  todos: PropTypes.shape({
+    isFetching: PropTypes.bool.isRequired,
+    isClearing: PropTypes.bool.isRequired,
+    items: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      completed: PropTypes.bool.isRequired
+    })).isRequired
+  }).isRequired,
   progress: PropTypes.number.isRequired,
   dispatch: PropTypes.func.isRequired
 };
 
-const selectProgress = todos => {
-  if (!todos.length) return 0;
+const selectProgress = items => {
+  if (!items.length) return 0;
 
-  let done = todos.filter((t) => t.completed);
-  return (done.length / todos.length) * 100;
+  let done = items.filter((t) => t.completed);
+  return (done.length / items.length) * 100;
 };
 
-const selectTodos = (todos, filter) => {
+const selectTodos = (items, filter) => {
   switch (filter) {
     case todoConstants.LIST_FILTERS.SHOW_COMPLETE:
-      return todos.filter(t => t.completed);
+      return items.filter(t => t.completed);
     case todoConstants.LIST_FILTERS.SHOW_INCOMPLETE:
-      return todos.filter(t => !t.completed);
+      return items.filter(t => !t.completed);
     case todoConstants.LIST_FILTERS.SHOW_ALL:
-      return todos;
-  }
+      return items;
+  };
 };
 
 const mapStateToProps = state => {
   return {
     filter: state.filter,
-    todos: selectTodos(state.todos.items, state.filter),
-    isFetching: state.todos.isFetching,
-    isClearing: state.todos.isClearing,
+    todos: {
+      ...state.todos,
+      items: selectTodos(state.todos.items, state.filter)
+    },
     progress: selectProgress(state.todos.items)
   };
 };
