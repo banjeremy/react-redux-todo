@@ -57,7 +57,7 @@ npm run dev:no-debug
 
 ### Functionality
 - [X] add todos
-- [ ] complete todos
+- [X] complete todos
 - [X] remove todos
 - [ ] sort todos
 - [X] filter todos by completed status
