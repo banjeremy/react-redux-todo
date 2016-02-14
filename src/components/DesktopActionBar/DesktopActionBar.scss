@@ -3,19 +3,45 @@
 .action-bar {
 
   &--desktop {
-    background-color: $button-color;
     color: $button-text-color;
-    flex: 1 0 100%;
-    justify-content: space-between;
+    display: flex;
+    flex: 0 0 100%;
     flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 8.8rem;
+    height: 4.5rem;
 
-    .filter {
+    .left {
+      max-width: 32rem;
+      width: 33.333%;
+    }
+
+    .center {
+      background-color: $button-color;
+      display: flex;
+      flex: 0 0 100%;
+      justify-content: flex-start;
       max-width: 36rem;
-      width: 100%;
+      width: 33.333%;
 
       .icon {
-        width: 50px;
+        align-self: center;
+        background-image: url('components/DesktopActionBar/filter.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 2rem;
+        padding: 0 3rem;
+        width: 2rem;
       }
+    }
+
+    .right {
+      align-self: center;
+      background-color: $button-color;
+      height: 4.5rem;
+      max-width: 32rem;
+      text-align: right;
+      width: 33.333%;
     }
   }
 }

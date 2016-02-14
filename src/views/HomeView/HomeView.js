@@ -47,7 +47,9 @@ export class HomeView extends React.Component {
             <DesktopActionBar currentFilter={filter}
               onToggleFilter={filter => dispatch(todoActions.toggleListFilter(filter))}
               onAddTodo={text => { dispatch(todoActions.addTodo(text)); dispatch(todoActions.saveTodos()); }}
-              handleClear={ () => { dispatch(todoActions.toggleIsClearing()); dispatch(todoActions.saveTodos()); }} />
+              handleClear={ () => {
+                dispatch(todoActions.toggleIsClearing());
+              }} />
           </MediaQuery>
           <div className={classes['todo-list-container']}>
             <TodoList todos={todos.items}
@@ -69,14 +71,14 @@ export class HomeView extends React.Component {
             <footer className={classes['footer']}>
               <ActionBar handleClear={ () => {
                 dispatch(todoActions.toggleIsClearing());
-                dispatch(todoActions.saveTodos());
               }}/>
-            <Modal isActive={todos.isClearing}
-                handleAccept={() => dispatch(todoActions.clearTodos()) }
-                handleReject={() => dispatch(todoActions.toggleIsClearing()) }
-              />
             </footer>
           </MediaQuery>
+
+          <Modal isActive={todos.isClearing}
+              handleAccept={() => dispatch(todoActions.clearTodos()) }
+              handleReject={() => dispatch(todoActions.toggleIsClearing()) }
+            />
         </div>
       </div>
     );

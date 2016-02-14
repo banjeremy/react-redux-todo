@@ -24,11 +24,11 @@ const Todo = ({
     onDragEnd={onDragEnd}
   >
     <button onClick={onToggleTodo}
-      className={classes['complete']}>
+      className={classes['complete'] + ' icon'}>
     </button>
-    <div className={classes['label']}>{label}</div>
+    <div className={classes['label'] }>{label}</div>
     <button onClick={onRemoveTodo}
-      className={classes['remove']}></button>
+      className={classes['remove'] + ' icon'}></button>
   </li>
 );
 

@@ -13,8 +13,8 @@ class ToggleBar extends React.Component {
       <button
         className={
           filter === currentFilter
-          ? classes.active
-          : classes.inactive
+          ? 'active primary'
+          : 'inactive primary'
         }
         onClick={() => onToggleFilter(filter)}
       >

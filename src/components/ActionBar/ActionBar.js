@@ -6,8 +6,14 @@ const ActionBar = ({
 }) => {
   return (
     <div className={classes['action-bar']}>
-      <button>Sort</button>
-      <button onClick={handleClear}>Clear</button>
+      <button className={classes['sort'] + ' muted'}>
+        <i className={classes['sort-icon']}></i>
+        Sort
+      </button>
+      <button onClick={handleClear} className={classes['clear'] + ' muted'}>
+        <i className={classes['clear-icon']}></i>
+        Clear
+      </button>
     </div>
   );
 };

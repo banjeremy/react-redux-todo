@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="21" viewBox="0 0 12 21" version="1.1">
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Desktop-Active-State" transform="translate(-832.000000, -113.000000)" fill="#C5C5C5">
+      <g id="action-bar" transform="translate(352.000000, 100.000000)">
+        <g id="arrows" transform="translate(480.000000, 13.000000)">
+          <g id="down-arrow-outline" transform="translate(0.000000, 13.000000)">
+            <path d="M10.19 0.31L6 4.93 1.81 0.31C1.4-0.1 0.72-0.1 0.31 0.31 -0.1 0.73-0.1 1.4 0.31 1.81L5.18 7.19C5.41 7.41 5.71 7.51 6 7.49 6.29 7.51 6.59 7.41 6.82 7.19L11.69 1.81C12.1 1.4 12.1 0.73 11.69 0.31 11.28-0.1 10.6-0.1 10.19 0.31Z" id="Fill-3"/>
+          </g>
+          <path d="M11.69 5.71L6.82 0.31C6.59 0.08 6.29-0.02 6 0 5.71-0.02 5.41 0.08 5.18 0.31L0.31 5.71C-0.1 6.13-0.1 6.8 0.31 7.22 0.73 7.63 1.4 7.63 1.81 7.22L6 2.58 10.19 7.22C10.6 7.63 11.28 7.63 11.69 7.22 12.1 6.8 12.1 6.13 11.69 5.71" id="Fill-4"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
