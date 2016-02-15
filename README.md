@@ -12,6 +12,11 @@ npm install
 ```bash
 npm start
 ```
+## Serve without Debugger
+
+```bash
+npm run dev:no-debug
+```
 
 ### Actions
 
@@ -51,14 +56,8 @@ npm start
 
 
 ### Functionality
-- [ ] add todos
-- [ ] complete todos
-- [ ] remove todos
+- [X] add todos
+- [X] complete todos
+- [X] remove todos
 - [ ] sort todos
-- [ ] filter todos by completed status
-
-
-### Todo
-- [ ] organize actions and reducers into a single module with combined exports
-- [ ] add propType validation for all components
-- [ ] use reselect to create memoized selectors
+- [X] filter todos by completed status

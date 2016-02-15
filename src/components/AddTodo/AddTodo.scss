@@ -1,19 +1,19 @@
 @import './variables';
+
 .add-todo {
   position: relative;
 
   @media ($large-mobile) {
-    max-width: 320px;
-    margin: 0 auto;
+    max-width: 32rem;
   }
 
   .text-input {
     background-color: rgba(#000, 0.1);
-    height: 45px;
-    line-height: 45px;
+    height: 4.5rem;
+    line-height: 4.5rem;
     border: none;
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
     width: 100%;
   }
 
@@ -23,12 +23,12 @@
     background-repeat: no-repeat;
     background-color: transparent;
     background-image: url(components/AddTodo/add.svg);
-    width: 32px;
-    height: 45px;
+    width: 3.2rem;
+    height: 4.5rem;
     border: none;
     border-radius: 3px;
     position: absolute;
-    right: 10px;
+    right: 1rem;
     top: 50%;
     transform: translateY(-50%);
   }

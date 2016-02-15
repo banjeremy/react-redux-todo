@@ -13,8 +13,8 @@ class ToggleBar extends React.Component {
       <button
         className={
           filter === currentFilter
-          ? classes.active
-          : classes.inactive
+          ? 'active primary'
+          : 'inactive primary'
         }
         onClick={() => onToggleFilter(filter)}
       >
@@ -25,7 +25,7 @@ class ToggleBar extends React.Component {
 
   render () {
     return (
-      <div className={classes['toggle-bar'] + ' hide-on-tablet'}>
+      <div className={classes['toggle-bar']}>
         {this.renderFilter('SHOW_COMPLETED', 'Complete')}
         {this.renderFilter('SHOW_INCOMPLETE', 'Incomplete')}
       </div>

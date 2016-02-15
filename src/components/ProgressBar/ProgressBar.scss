@@ -1,19 +1,23 @@
 @import './variables';
-$height: 20px;
+$height: 2rem;
 $timer: 500ms;
+
 * {
   box-sizing: border-box;
 }
+
 .progress-bar {
   position: relative;
   overflow: hidden;
   height: $height;
   width: 100%;
+
   @media ($tablet) {
     height: $height * 2;
-    margin: 0 0 30px;
+    margin: 3rem 0 3rem;
   }
 }
+
 .bar {
   height: $height;
   position: absolute;
@@ -23,17 +27,23 @@ $timer: 500ms;
     height: $height * 2;
   }
 }
+
 .empty {
   composes: bar;
   background-color: rgba(#000, 0.28);
   width: 100%;
 }
+
 .progress {
   composes: bar;
   background-color: #F8A46B;
 }
+
 .label {
-  margin: 12px 40px;
+  font-size: 1.8rem;
+  font-weight: 200;
+  letter-spacing: .05rem;
+  margin: 1rem 4rem;
   position: absolute;
   top: 0;
   z-index: 5;
