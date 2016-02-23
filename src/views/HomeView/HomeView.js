@@ -20,7 +20,8 @@ export class HomeView extends React.Component {
       dispatch,
       todos,
       filter,
-      progress
+      progress,
+      mode
     } = this.props;
 
     return (
@@ -69,9 +70,18 @@ export class HomeView extends React.Component {
           </div>
           <MediaQuery maxWidth={800}>
             <footer className={classes['footer']}>
-              <ActionBar handleClear={ () => {
-                dispatch(todoActions.toggleIsClearing());
-              }}/>
+              <ActionBar
+                handleClear={ () => {
+                  dispatch(todoActions.toggleIsClearing());
+                }}
+                handleSort={ () => {
+                  dispatch(todoActions.setListMode(todoConstants.LIST_MODES.SORT))
+                }}
+                handleDone={ () => {
+                  dispatch(todoActions.setListMode(todoConstants.LIST_MODES.INSERT))
+                }}
+                isSorting={mode === todoConstants.LIST_MODES.SORT}
+              />
             </footer>
           </MediaQuery>
 
@@ -125,7 +135,8 @@ const mapStateToProps = state => {
       ...state.todos,
       items: selectTodos(state.todos.items, state.filter)
     },
-    progress: selectProgress(state.todos.items)
+    progress: selectProgress(state.todos.items),
+    mode: state.mode
   };
 };
 
